@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using Npgsql;
 namespace JournalistForm {
     public partial class Form1 : Form {
         public Form1() {
@@ -51,6 +51,13 @@ namespace JournalistForm {
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UploadButton_Click(object sender, EventArgs e)
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;User Id=postgres;" +
+                                "Password=postgres;Database=postgres;");
+            conn.Open();
         }
     }
 }

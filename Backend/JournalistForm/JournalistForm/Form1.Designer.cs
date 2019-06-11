@@ -40,6 +40,7 @@
             this.UploadButton.TabIndex = 0;
             this.UploadButton.Text = "Upload";
             this.UploadButton.UseVisualStyleBackColor = true;
+            this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
             // 
             // pictureBox1
             // 
