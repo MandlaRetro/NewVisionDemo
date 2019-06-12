@@ -24,13 +24,13 @@
         /// </summary>
         private void InitializeComponent() {
             this.UploadButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ImageDisplay = new System.Windows.Forms.PictureBox();
             this.PictureUpload = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Content = new System.Windows.Forms.RichTextBox();
+            this.Title = new System.Windows.Forms.RichTextBox();
             this.Author = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // UploadButton
@@ -43,14 +43,14 @@
             this.UploadButton.UseVisualStyleBackColor = true;
             this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
             // 
-            // pictureBox1
+            // ImageDisplay
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(252, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(263, 123);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.ImageDisplay.Location = new System.Drawing.Point(476, 12);
+            this.ImageDisplay.Name = "ImageDisplay";
+            this.ImageDisplay.Size = new System.Drawing.Size(263, 123);
+            this.ImageDisplay.TabIndex = 1;
+            this.ImageDisplay.TabStop = false;
+            this.ImageDisplay.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // PictureUpload
             // 
@@ -62,28 +62,30 @@
             this.PictureUpload.UseVisualStyleBackColor = true;
             this.PictureUpload.Click += new System.EventHandler(this.PictureUpload_Click);
             // 
-            // richTextBox1
+            // Content
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 214);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(331, 206);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.Content.Location = new System.Drawing.Point(12, 214);
+            this.Content.Name = "Content";
+            this.Content.Size = new System.Drawing.Size(351, 206);
+            this.Content.TabIndex = 4;
+            this.Content.Text = "";
+            this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
             // 
-            // richTextBox2
+            // Title
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(212, 12);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(331, 23);
-            this.richTextBox2.TabIndex = 5;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.Title.Location = new System.Drawing.Point(12, 105);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(240, 30);
+            this.Title.TabIndex = 5;
+            this.Title.Text = "";
+            this.Title.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // Author
             // 
-            this.Author.Location = new System.Drawing.Point(80, 80);
+            this.Author.Location = new System.Drawing.Point(12, 46);
+            this.Author.Multiline = true;
             this.Author.Name = "Author";
-            this.Author.Size = new System.Drawing.Size(100, 22);
+            this.Author.Size = new System.Drawing.Size(331, 24);
             this.Author.TabIndex = 6;
             // 
             // Form1
@@ -92,15 +94,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Author);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Title);
+            this.Controls.Add(this.Content);
             this.Controls.Add(this.PictureUpload);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ImageDisplay);
             this.Controls.Add(this.UploadButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,11 +111,11 @@
         #endregion
 
         private System.Windows.Forms.Button UploadButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ImageDisplay;
         private System.Windows.Forms.Button PictureUpload;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox Content;
+        private System.Windows.Forms.RichTextBox Title;
         private System.Windows.Forms.TextBox Author;
     }
 }

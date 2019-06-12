@@ -14,9 +14,9 @@ namespace NewVisionAPIDemo.Controllers
             this.context = context;
         }
 
-        /*[HttpGet("")]
+        [HttpGet("")]
         public IActionResult GetArticlesByAuthor(string authorName) {
-
-        }*/
+            return null;
+        }
     }
 }

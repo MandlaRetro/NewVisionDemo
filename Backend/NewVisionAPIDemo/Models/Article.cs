@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewVisionAPIDemo.Models {
@@ -10,5 +11,6 @@ namespace NewVisionAPIDemo.Models {
         public string Title { get; set; }
         public string Author { get; set; }
         public string ImageBase64 { get; set; }
+        public DateTime UploadDate { get; set; }
     }
 }
