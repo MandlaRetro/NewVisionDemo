@@ -8,7 +8,7 @@ export default class Container extends Component {
         super(props);
         this.state = {
             selectedStory: "",
-            stories: [{ "Id": 0, "content":"i did fdiszhbx aisnc iersnvf inerszfb nfsc iawrfnsc ifwncdi fnrescibjnfr eirsnasz frnsc fiwen erihn feridbf eihrbn edfb erv i iev dfi esfdvefsellvfh sv iwe sfd veis viw sz vishd vhea viw  sdxlziv ilwe sdzlih vewh fdsv wiehs dfizhv ig div hrie viv ei didxlvskhf ie sdih vels sd h vd veri vfsih v wef iwesi esd f rec aihf  fhv efdih vihfe svi vs dvhr ewihs tih eig verih vi fdfdi  vfesih ihd id fvih fisd iv hdih iv gfih dvidf hier vki tv this", "Title": "Zuma killed a man", "Author": "Bathande", "image": images },{"Id":1,"content":"tuman","Title":"i did happen","Author":"Tu","image":images}],
+            stories:[],
             page:0,
             index:""
         }
@@ -21,6 +21,15 @@ export default class Container extends Component {
 
     getContent=(index)=>{
         this.setState({index:index})
+    }
+
+    componentWillMount(){
+        fetch("https://localhost:44321/api/cms")
+        .then(res=>res.json())
+        .then(data=>{
+            this.setState({stories:data})
+            console.log("here",data)
+        })
     }
 
     render() {
