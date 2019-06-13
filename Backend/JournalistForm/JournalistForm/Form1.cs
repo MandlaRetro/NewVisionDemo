@@ -5,14 +5,9 @@ using System.IO;
 using System.Windows.Forms;
 using Npgsql;
 namespace JournalistForm {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class CMS : Form {
+        public CMS() {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +38,7 @@ namespace JournalistForm {
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Image_Click(object sender, EventArgs e)
         {
 
         }
@@ -53,27 +48,46 @@ namespace JournalistForm {
             NpgsqlConnection conn = new NpgsqlConnection("User ID = postgres;Password=postgres;Server=localhost;Port=5432;Database=Demo;Integrated Security=true;Pooling=true;");
             conn.Open();
             using (NpgsqlCommand cmd = conn.CreateCommand()) {
-                cmd.CommandText = @"insert into ""Articles""(""Content"",""Title"",""Author"",""ImageBase64"")
-                    values(@Content, @Author, @Title, @ImageBase64)";
+                cmd.CommandText = @"insert into ""Articles""(""Content"",""Author"",""Title"",""ImageBase64"",""UploadDate"")
+                    values(@Content, @Author, @Title, @ImageBase64, @UploadDate)";
                 cmd.Parameters.Add(new NpgsqlParameter("@Content", Content.Text));
-                cmd.Parameters.Add(new NpgsqlParameter("@Title", Title.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("@Title", Headline.Text));
                 cmd.Parameters.Add(new NpgsqlParameter("@Author", Author.Text));
                 cmd.Parameters.Add(new NpgsqlParameter("@ImageBase64", ToBase64(ImageDisplay.ImageLocation)));
+                cmd.Parameters.Add(new NpgsqlParameter("@UploadDate", DateTime.Now));
                 cmd.ExecuteNonQuery();
             }
+            conn.Close();
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void Author_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private string ToBase64(string imagePath) {
+            if (imagePath == null || imagePath == "") return "";
             byte[] imageBytes = File.ReadAllBytes(imagePath);
             return Convert.ToBase64String(imageBytes);
         }
 
         private void Content_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void Headline_Label_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Headline_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void Author_Label_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Article_Label_Click(object sender, EventArgs e) {
 
         }
     }
