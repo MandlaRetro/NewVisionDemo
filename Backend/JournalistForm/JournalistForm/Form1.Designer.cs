@@ -1,5 +1,5 @@
 ﻿namespace JournalistForm {
-    partial class Form1 {
+    partial class CMS {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,8 +28,11 @@
             this.PictureUpload = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.Content = new System.Windows.Forms.RichTextBox();
-            this.Title = new System.Windows.Forms.RichTextBox();
-            this.Author = new System.Windows.Forms.TextBox();
+            this.Headline_Label = new System.Windows.Forms.Label();
+            this.Author_Label = new System.Windows.Forms.Label();
+            this.Article_Label = new System.Windows.Forms.Label();
+            this.Author = new System.Windows.Forms.RichTextBox();
+            this.Headline = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ImageDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,10 +50,10 @@
             // 
             this.ImageDisplay.Location = new System.Drawing.Point(476, 12);
             this.ImageDisplay.Name = "ImageDisplay";
-            this.ImageDisplay.Size = new System.Drawing.Size(263, 123);
+            this.ImageDisplay.Size = new System.Drawing.Size(299, 173);
             this.ImageDisplay.TabIndex = 1;
             this.ImageDisplay.TabStop = false;
-            this.ImageDisplay.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.ImageDisplay.Click += new System.EventHandler(this.Image_Click);
             // 
             // PictureUpload
             // 
@@ -71,36 +74,73 @@
             this.Content.Text = "";
             this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
             // 
-            // Title
+            // Headline_Label
             // 
-            this.Title.Location = new System.Drawing.Point(12, 105);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(240, 30);
-            this.Title.TabIndex = 5;
-            this.Title.Text = "";
-            this.Title.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.Headline_Label.AutoSize = true;
+            this.Headline_Label.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Headline_Label.Location = new System.Drawing.Point(12, 12);
+            this.Headline_Label.Name = "Headline_Label";
+            this.Headline_Label.Size = new System.Drawing.Size(72, 19);
+            this.Headline_Label.TabIndex = 7;
+            this.Headline_Label.Text = "Headline";
+            this.Headline_Label.Click += new System.EventHandler(this.Headline_Label_Click);
+            // 
+            // Author_Label
+            // 
+            this.Author_Label.AutoSize = true;
+            this.Author_Label.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Author_Label.Location = new System.Drawing.Point(13, 87);
+            this.Author_Label.Name = "Author_Label";
+            this.Author_Label.Size = new System.Drawing.Size(57, 19);
+            this.Author_Label.TabIndex = 8;
+            this.Author_Label.Text = "Author";
+            this.Author_Label.Click += new System.EventHandler(this.Author_Label_Click);
+            // 
+            // Article_Label
+            // 
+            this.Article_Label.AutoSize = true;
+            this.Article_Label.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Article_Label.Location = new System.Drawing.Point(17, 178);
+            this.Article_Label.Name = "Article_Label";
+            this.Article_Label.Size = new System.Drawing.Size(55, 19);
+            this.Article_Label.TabIndex = 9;
+            this.Article_Label.Text = "Article";
+            this.Article_Label.Click += new System.EventHandler(this.Article_Label_Click);
             // 
             // Author
             // 
-            this.Author.Location = new System.Drawing.Point(12, 46);
-            this.Author.Multiline = true;
+            this.Author.Location = new System.Drawing.Point(12, 124);
             this.Author.Name = "Author";
-            this.Author.Size = new System.Drawing.Size(331, 24);
-            this.Author.TabIndex = 6;
+            this.Author.Size = new System.Drawing.Size(240, 25);
+            this.Author.TabIndex = 5;
+            this.Author.Text = "";
+            this.Author.TextChanged += new System.EventHandler(this.Author_TextChanged);
             // 
-            // Form1
+            // Headline
+            // 
+            this.Headline.Location = new System.Drawing.Point(12, 44);
+            this.Headline.Name = "Headline";
+            this.Headline.Size = new System.Drawing.Size(351, 24);
+            this.Headline.TabIndex = 10;
+            this.Headline.Text = "";
+            this.Headline.TextChanged += new System.EventHandler(this.Headline_TextChanged);
+            // 
+            // CMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Headline);
+            this.Controls.Add(this.Article_Label);
+            this.Controls.Add(this.Author_Label);
+            this.Controls.Add(this.Headline_Label);
             this.Controls.Add(this.Author);
-            this.Controls.Add(this.Title);
             this.Controls.Add(this.Content);
             this.Controls.Add(this.PictureUpload);
             this.Controls.Add(this.ImageDisplay);
             this.Controls.Add(this.UploadButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "CMS";
+            this.Text = "CMS";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ImageDisplay)).EndInit();
             this.ResumeLayout(false);
@@ -115,8 +155,11 @@
         private System.Windows.Forms.Button PictureUpload;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.RichTextBox Content;
-        private System.Windows.Forms.RichTextBox Title;
-        private System.Windows.Forms.TextBox Author;
+        private System.Windows.Forms.Label Headline_Label;
+        private System.Windows.Forms.Label Author_Label;
+        private System.Windows.Forms.Label Article_Label;
+        private System.Windows.Forms.RichTextBox Author;
+        private System.Windows.Forms.RichTextBox Headline;
     }
 }
 
