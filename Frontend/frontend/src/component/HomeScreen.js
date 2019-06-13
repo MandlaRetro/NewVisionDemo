@@ -10,8 +10,9 @@ export class HomeScreen extends Component {
         }
     }
 
-    cont=()=>{
-        this.props.triggerpages(1)
+    cont=(index)=>{
+        this.props.triggerpages(1);
+        this.props.getContent(index);
     }
 
     render() {
@@ -20,10 +21,10 @@ export class HomeScreen extends Component {
             <div className="items-main">
                 <table className="item-container" style={{width:"100%"}}>
                     <tbody>
-                        {this.state.stories.map(story => (
+                        {this.props.content.map(story => (
                             <tr className="item-row" key={story.Id} style={{width:"100%"}}>
                                 <td style={{width:"100%"}} className="item-col">
-                                    <button onClick={this.cont} type="button" style={{width:"100%",textAlign:"left"}} class="btn btn-default">{story.Title}</button>
+                                    <button onClick={()=>this.cont(story.Id)} type="button" style={{width:"100%",textAlign:"left",height:"60px",display:"flex",justifyContent:"space-between"}} class="btn btn-default">{story.Title} <div style={{width:"40px",height:"40px"}}><img style={{width:"45px",height:"45px"}} src={story.image} /></div></button>
                                 </td>
                                
                             </tr>
