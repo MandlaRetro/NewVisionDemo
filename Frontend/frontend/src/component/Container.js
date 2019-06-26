@@ -35,7 +35,7 @@ export default class Container extends Component {
     render() {
         return (
             <div style={{width:"100%",height:"100%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
-                <div><label><b>Top Stories</b></label></div>
+                <div style={{height:"50px",background:"#ed1c24",display:"flex",flexDirection:"column",justifyContent:"center"}}><label style={{color:"white"}}><b>NEW VISION</b></label></div>
             {this.state.page===0?
                <HomeScreen getContent={this.getContent} triggerpages={this.pages}  content={this.state.stories}/> :<Contents triggerpages={this.pages} content={this.state.stories[this.state.index]} />}
             </div>

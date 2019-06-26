@@ -26,5 +26,22 @@ namespace NewVisionAPIDemo.Controllers
                 return new BadRequestObjectResult("Something went wrong");
             }
         }
+
+        [HttpPost("postdata")]
+        public IActionResult post(Article data)
+        {
+            if(data != null)
+            {
+                return new BadRequestObjectResult("null data");
+            }
+
+            Article articleData = new Article();
+            articleData.Content = data.Content;
+            articleData.Author = data.Author;
+            articleData.ImageBase64 = data.ImageBase64;
+            articleData.UploadDate = data.UploadDate;
+            context.SaveChanges();
+            return new OkObjectResult(articleData);
+        }
     }
 }
