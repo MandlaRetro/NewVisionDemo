@@ -25,9 +25,9 @@ export default class contentcomponent extends Component {
             Title:this.state.headline
         }
         // console.log(JSON.stringify(obj))
-        fetch("https://localhost:44321/api/cms",{
+        fetch("https://localhost:44321/api/cms/postarticle",{
             method:"POST",
-            headers: {
+            headers:{
                 'Content-type': 'application/json'
             },
             body:JSON.stringify(obj)
