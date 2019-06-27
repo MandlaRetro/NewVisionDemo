@@ -12,7 +12,7 @@ export default class Homescreen extends Component {
     render() {
         return (
             <div className="home-main">
-                <Leftoption />
+                {/* <Leftoption /> */}
                 <Content />
             </div>
         )

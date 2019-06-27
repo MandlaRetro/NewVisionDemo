@@ -40,8 +40,11 @@ export default class contentcomponent extends Component {
     render() {
         return (
             <div className="input-content">
+                <div className="nav-bar">
+                    NEW VISION CONTENT MANANGEMENT SYSTEM 
+                </div>
                 <div>
-                    <label>
+                    <label className="first-label">
                         Headline
                     </label>
                     <input typr="text" name="headline" value={this.state.headline} onChange={(e)=>this.textonchange(e)} className="headline-textbox" />
@@ -51,8 +54,8 @@ export default class contentcomponent extends Component {
                     <input type="file" className="input-file" name="myfile" onChange={(e)=>this.onchange(e)}/>
                     <img className="image-box" src={this.state.imageName} />
                 </div>
-                <div>
-                    <label>Article</label>
+                <div className="third">
+                    <label className="third-label">Article</label>
                     <input type="text" className="article-text" name="textArticle" value={this.state.textArticle} onChange={(e)=>this.textonchange(e)} />
                 </div>
                 <div>
