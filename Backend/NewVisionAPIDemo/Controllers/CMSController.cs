@@ -26,5 +26,12 @@ namespace NewVisionAPIDemo.Controllers
                 return new BadRequestObjectResult("Something went wrong");
             }
         }
+
+        [HttpPost]
+        public IActionResult PostArticle([FromBody] Article article) {
+
+
+            return new OkObjectResult("Succesfully uploaded article");
+        }
     }
 }
