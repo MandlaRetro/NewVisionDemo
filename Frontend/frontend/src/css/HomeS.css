@@ -1,0 +1,7 @@
+.item-container{
+    height: 100%;
+}
+.item-container .item-row{
+    height: 5%;
+    background: wheat;
+}

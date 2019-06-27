@@ -17,7 +17,7 @@ namespace NewVisionAPIDemo.Controllers
 
         [HttpGet]
         public IActionResult GetArticles(string authorName) {
-            if (!ModelState.IsValid) return new BadRequestObjectResult("Error");
+            if (!ModelState.IsValid) return new BadRequestObjectResult("Modelstate invalid");
             try {
                 var articles = context.Articles.OrderByDescending(x => x.UploadDate);
                 if (articles.Count() == 0) return new OkObjectResult("No articles");
@@ -27,11 +27,20 @@ namespace NewVisionAPIDemo.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult PostArticle([FromBody] Article article) {
+        [HttpPost("postarticle")]
+        public IActionResult PostArticle(Article article)
+        {
+            if (!ModelState.IsValid) return new BadRequestObjectResult("Modelstate invalid");
+            if (article == null) return new BadRequestObjectResult("cannot post null data");
+            try {
+                article.UploadDate = DateTime.Now;
+                context.Articles.Add(article);
+                context.SaveChanges();
+            } catch (Exception) {
+                return new BadRequestObjectResult("Error uploading article");
+            }
 
-
-            return new OkObjectResult("Succesfully uploaded article");
+            return new OkObjectResult("Succesfully posted article");
         }
     }
 }
