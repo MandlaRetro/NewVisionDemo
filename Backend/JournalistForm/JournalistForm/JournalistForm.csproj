@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BitMiracle.Docotic.Pdf, Version=5.9.9562.0, Culture=neutral, PublicKeyToken=221650e173990c07, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitMiracle.Docotic.Pdf.5.9.9562\lib\net40\BitMiracle.Docotic.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\net451\Npgsql.dll</HintPath>
     </Reference>

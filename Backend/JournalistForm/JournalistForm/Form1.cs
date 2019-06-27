@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -45,19 +44,24 @@ namespace JournalistForm {
 
         private void UploadButton_Click(object sender, EventArgs e)
         {
-            NpgsqlConnection conn = new NpgsqlConnection("User ID = postgres;Password=postgres;Server=localhost;Port=5432;Database=Demo;Integrated Security=true;Pooling=true;");
-            conn.Open();
-            using (NpgsqlCommand cmd = conn.CreateCommand()) {
-                cmd.CommandText = @"insert into ""Articles""(""Content"",""Author"",""Title"",""ImageBase64"",""UploadDate"")
-                    values(@Content, @Author, @Title, @ImageBase64, @UploadDate)";
-                cmd.Parameters.Add(new NpgsqlParameter("@Content", Content.Text));
-                cmd.Parameters.Add(new NpgsqlParameter("@Title", Headline.Text));
-                cmd.Parameters.Add(new NpgsqlParameter("@Author", Author.Text));
-                cmd.Parameters.Add(new NpgsqlParameter("@ImageBase64", ToBase64(ImageDisplay.ImageLocation)));
-                cmd.Parameters.Add(new NpgsqlParameter("@UploadDate", DateTime.Now));
-                cmd.ExecuteNonQuery();
+            try {
+                NpgsqlConnection conn = new NpgsqlConnection("User ID = postgres;Password=postgres;Server=localhost;Port=5432;Database=Demo;Integrated Security=true;Pooling=true;");
+                conn.Open();
+                using (NpgsqlCommand cmd = conn.CreateCommand()) {
+                    cmd.CommandText = @"insert into ""Articles""(""Content"",""Author"",""Title"",""ImageBase64"",""UploadDate"")
+                        values(@Content, @Author, @Title, @ImageBase64, @UploadDate)";
+                    cmd.Parameters.Add(new NpgsqlParameter("@Content", Content.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Title", Headline.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Author", Author.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@ImageBase64", ToBase64(ImageDisplay.ImageLocation)));
+                    cmd.Parameters.Add(new NpgsqlParameter("@UploadDate", DateTime.Now));
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+                MessageBox.Show("Succesfully published", "Published");
+            } catch (Exception) {
+                MessageBox.Show("Could not publish article. Try again", "Error");
             }
-            conn.Close();
         }
 
         private void Author_TextChanged(object sender, EventArgs e)
