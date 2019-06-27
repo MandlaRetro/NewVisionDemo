@@ -18,15 +18,18 @@ export default class contentcomponent extends Component {
     }
     
     upload=()=>{
-        const obj ={
+        const obj = {
             Author:"bathande tuman data",
             content:this.state.textArticle,
             ImageBase64:this.state.imageName,
             Title:this.state.headline
         }
-        console.log(obj)
-        fetch("https://localhost:44321/api/postdata",{
+        // console.log(JSON.stringify(obj))
+        fetch("https://localhost:44321/api/cms",{
             method:"POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
             body:JSON.stringify(obj)
         })
         .then(res=>res.json())
